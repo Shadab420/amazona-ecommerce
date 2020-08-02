@@ -1,0 +1,45 @@
+.header {
+    grid-area: header;
+    background-color: $background1;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    .brand {
+
+        button {
+            font-size: 3rem;
+            padding: 0.5rem;
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        a {
+            color: $white;
+            font-size: 2.5rem;
+            font-weight: bold;
+
+            &:hover {
+                color: $hover1;
+            }
+        }
+
+    }
+
+    .header-links {
+
+        a {
+            color: $white;
+            padding: 1rem;
+
+            &:hover {
+                color: $hover1;
+            }
+        }
+    }
+    
+}

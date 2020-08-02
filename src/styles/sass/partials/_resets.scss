@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+ html {
+     font-size: 62.5%; 
+ }
+
+ body {
+     font: 1.6rem Helvetica;
+     height: 100vh;
+ }
+
+ a {
+     text-decoration: none;
+     transition: 0.3s all ease-in-out;
+
+     &:hover {
+        color: $hover1;
+    }
+ }
+
+ ul {
+     list-style: none;
+ }

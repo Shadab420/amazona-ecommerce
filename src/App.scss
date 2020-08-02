@@ -1,0 +1,14 @@
+@import './styles/sass/partials/variables';
+@import './styles/sass/partials/resets';
+@import './styles/sass/partials/mixins';
+
+@include main-grid{
+
+    @import './styles/sass/partials/components/header';
+
+    @import './styles/sass/partials/components/sidebar';
+
+    @import './styles/sass/partials/components/main';
+
+    @import './styles/sass/partials/components/footer';
+}
