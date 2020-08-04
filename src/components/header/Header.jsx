@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Sidebar from '../sidebar/Sidebar'
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -13,7 +14,7 @@ export default function Header() {
                 <button onClick={ () => setOpenSideBar(!openSideBar)}>
                     &#9776;
                 </button>
-                <a href="/">Amazona</a>
+                <Link to="/">Amazona</Link>
                 </div>
 
                 <div className="header-links">

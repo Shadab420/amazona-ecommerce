@@ -5,24 +5,30 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Products from './components/products/Products';
 
+import { BrowserRouter, Route } from 'react-router-dom';
+import ProductDetail from './components/product/ProductDetail';
+
 
 
 function App() {
   return (
-    <div className="grid-container">
+    <BrowserRouter>
+      <div className="grid-container">
 
-      <Header/>
+        <Header/>
 
-      <main className="main">
-        <div className="content">
-          
-          <Products/>
+        <main className="main">
+          <div className="content">
 
-        </div>
-      </main>
+            <Route path="/product/:id" component={ProductDetail} />
+            <Route path="/" exact component={Products} />
+            
+          </div>
+        </main>
 
-      <Footer/>
-    </div>
+        <Footer/>
+      </div>
+    </BrowserRouter>
   );
 }
 
