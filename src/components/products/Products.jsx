@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from '../product/Product';
-import products from '../../fakeData/products';
+import axios from 'axios';
 
 const Products = () => {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const {data} = await axios.get("http://localhost:5000/api/products");
+            setProducts(data);
+        }
+
+        fetchProducts();
+        return () => {
+            
+        }
+    }, [])
+
     return (
         <>
             <ul className="products">
