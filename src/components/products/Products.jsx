@@ -23,7 +23,7 @@ const Products = () => {
     return (
 
         loading ? <div>Loading</div>
-        :error? <div>Error</div>:
+        :error? <div>{error}</div>:
 
         <>
             <ul className="products">

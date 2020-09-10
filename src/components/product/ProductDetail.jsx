@@ -1,13 +1,33 @@
 import React from 'react'
 import products from '../../fakeData/products';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getProductDetails } from '../../redux/actions/productActions';
 
 const ProductDetail = (props) => {
 
     const productId = props.match.params.id;
-    const product = products.find(p => p._id == productId);
+
+    const productDetail = useSelector(state => state.productDetail);
+    const { product, loading, error } = productDetail;
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        
+        dispatch(getProductDetails(productId));
+
+        return () => {
+            
+        }
+    }, [])
 
     return (
+
+        loading ? <div>Loading...</div>
+        : error ? <div>{error}</div>:
+
         <>
             <div className="back-to-list">
                 <Link to="/">Back to list</Link>
