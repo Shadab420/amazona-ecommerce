@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Product from '../product/Product';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsList } from '../../redux/actions/productActions';
 
 const Products = () => {
 
-    const [products, setProducts] = useState([]);
+    //mapStateToProps equivelent useSelector() hook
+    const productsList = useSelector(state => state.productsList);
+    const { products, loading, error } = productsList;
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            const {data} = await axios.get("http://localhost:5000/api/products");
-            setProducts(data);
-        }
 
-        fetchProducts();
+        dispatch(getProductsList());
+        
         return () => {
             
         }
     }, [])
 
     return (
+
+        loading ? <div>Loading</div>
+        :error? <div>Error</div>:
+
         <>
             <ul className="products">
 
