@@ -26,7 +26,7 @@ export const getProductDetails = productId => async (dispatch) => {
             type: PRODUCT_DETAIL_REQUEST, 
         });
     
-        const {data} = await axios.get("https://localhost:5000/api/product/"+productId);
+        const {data} = await axios.get("http://localhost:5000/api/product/"+productId);
     
         dispatch({
             type: PRODUCT_DETAIL_SUCCESS,

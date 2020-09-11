@@ -1,5 +1,5 @@
 import React from 'react'
-import products from '../../fakeData/products';
+// import products from '../../fakeData/products';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
