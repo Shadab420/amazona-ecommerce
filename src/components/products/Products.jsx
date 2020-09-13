@@ -29,9 +29,9 @@ const Products = () => {
             <ul className="products">
 
                 {
-                    products.map(product => <li>
-                        <Product product={product} />
-                    </li>)
+                    products.map(product => <li key={product._id}>
+                                                <Product product={product} />
+                                            </li>)
                 }
 
 

@@ -7,6 +7,7 @@ import Products from './components/products/Products';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 import ProductDetail from './components/product/ProductDetail';
+import Cart from './components/cart/Cart';
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
             <Route path="/product/:id" component={ProductDetail} />
             <Route path="/" exact component={Products} />
+            <Route path="/cart/:id?" component={Cart} />
             
           </div>
         </main>

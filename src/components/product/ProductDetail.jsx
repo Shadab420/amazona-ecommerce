@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getProductDetails } from '../../redux/actions/productActions';
+import { useState } from 'react';
 
 const ProductDetail = (props) => {
 
@@ -11,6 +12,8 @@ const ProductDetail = (props) => {
 
     const productDetail = useSelector(state => state.productDetail);
     const { product, loading, error } = productDetail;
+
+    const [quantity, setQuantity] = useState(1);
     
     const dispatch = useDispatch();
 
@@ -22,6 +25,10 @@ const ProductDetail = (props) => {
             
         }
     }, [])
+
+    const addToCart = () => {
+        props.history.push(`/cart/${productId}?qty=${quantity}`);
+    }
 
     return (
 
@@ -62,21 +69,23 @@ const ProductDetail = (props) => {
                             Price: ${product.productPrice}
                         </li>
                         <li>
-                            Status: {product.status}
+                            Status: { product.countInStock > 0 ? 'Available' : 'Unavailable'}
                         </li>
                         <li>
                             Qty: 
-                            <select name="" id="">
-                                <option value="">select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                            <select name="" id="" value={quantity} onChange={(e)=>setQuantity(e.target.value)}>
+                                {
+                                    
+                                    [...Array(product.countInStock).keys()].map(x => 
+
+                                         <option value={x+1} key={x+1}>{x+1}</option>
+                                    )
+                                }
                             </select>
                         </li>
                         <li>
-                            <button>Add to cart</button>
+                            { product.countInStock > 0 &&  <button onClick={()=>addToCart()}>Add to cart</button> }
+                            
                         </li>
                     </ul>
                 </div>

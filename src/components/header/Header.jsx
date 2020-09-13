@@ -18,7 +18,7 @@ export default function Header() {
                 </div>
 
                 <div className="header-links">
-                    <a href="/">Cart</a>
+                    <Link to="/cart">Cart</Link>
                     <a href="/">Sign In</a>
                 </div>
             </header>
